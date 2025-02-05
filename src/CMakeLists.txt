@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.18)
+
+if(AS_MATRIX)
+    LIST(APPEND sources matrix_solution.cpp)
+    LIST(APPEND headers matrix_solution.h)
+endif()
+
+if(AS_LIST)
+    LIST(APPEND sources list_solution.cpp)
+    LIST(APPEND headers list_solution.h)
+endif()
+
+if(BUILD_SHARED_LIBS)
+    add_library(${PROJECT_NAME}_static STATIC ${sources})
+    target_include_directories(${PROJECT_NAME}_static PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    add_library(${PROJECT_NAME} ALIAS ${PROJECT_NAME}_static)
+else()
+    add_library(${PROJECT_NAME}_shread SHARED ${sources})
+    target_include_directories(${PROJECT_NAME}_shared PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    add_library(${PROJECT_NAME} ALIAS ${PROJECT_NAME}_shread)
+endif()
