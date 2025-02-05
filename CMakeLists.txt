@@ -9,7 +9,7 @@ option(WITH_PLAYGROUND "Compile stdio testing source" ON)
 option(WITH_TESTS "Compile tests as part of ALL_BUILD" ON)
 option(AS_MATRIX "Compile solution which takes a boolean matrix as an argument" ON)
 option(AS_LIST "Compiles solution which takes the matrix as a list of marked cells" ON)
-option(32bit_COORDS "Compiles the solution for matrixes up to 2^32 by 2^32" ON)
+option(COORD_32BIT "Compiles the solution for matrixes up to 2^32 by 2^32" ON)
 
 if(AS_MATRIX)
     add_compile_definitions(-DAS_MATRIX)
@@ -17,6 +17,10 @@ endif()
 
 if(AS_LIST)
     add_compile_definitions(-DAS_LIST)
+endif()
+
+if(COORD_32BIT)
+    add_compile_definitions(-DCOORD_32BIT)
 endif()
 
 add_subdirectory(src)

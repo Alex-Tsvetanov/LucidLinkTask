@@ -11,9 +11,19 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(GoogleTest)
 
-add_executable(tests main.cpp)
-target_link_libraries(tests PRIVATE
+add_executable(test_list_solution list.cpp)
+target_link_libraries(test_list_solution PRIVATE
     ${PROJECT_NAME}
     gtest
     gtest_main
 )
+add_executable(test_matrix_solution list.cpp)
+target_link_libraries(test_matrix_solution PRIVATE
+    ${PROJECT_NAME}
+    gtest
+    gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(test_list_solution)
+gtest_discover_tests(test_matrix_solution)
