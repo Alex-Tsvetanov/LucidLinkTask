@@ -25,5 +25,13 @@ target_link_libraries(test_matrix_solution PRIVATE
     gtest_main
 )
 
-add_test(NAME test_list_solution COMMAND test_list_solution)
-add_test(NAME test_matrix_solution COMMAND test_matrix_solution)
+# Tell ctest about my tests
+include(GoogleTest)
+gtest_add_tests(
+    TARGET test_list_solution
+    TEST_LIST test_list_solution_targets
+)
+gtest_add_tests(
+    TARGET test_matrix_solution
+    TEST_LIST test_matrix_solution_targets
+)

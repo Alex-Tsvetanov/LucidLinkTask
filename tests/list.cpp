@@ -3,28 +3,28 @@
 
 namespace solution {
 	namespace single_thread {
-		TEST(ComponentTests, EmptyGrid) {
+		TEST(ListComponentTests, EmptyGrid) {
 			std::list<cell> marked_cells;
 			coord_t total_rows = 5;
 			coord_t total_cols = 5;
 			EXPECT_EQ(number_of_components(marked_cells, total_rows, total_cols), 0);
 		}
 
-		TEST(ComponentTests, SingleComponent) {
+		TEST(ListComponentTests, SingleComponent) {
 			std::list<cell> marked_cells = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
 			coord_t total_rows = 5;
 			coord_t total_cols = 5;
 			EXPECT_EQ(number_of_components(marked_cells, total_rows, total_cols), 1);
 		}
 
-		TEST(ComponentTests, MultipleComponents) {
+		TEST(ListComponentTests, MultipleComponents) {
 			std::list<cell> marked_cells = {{0, 0}, {0, 1}, {2, 2}, {2, 3}};
 			coord_t total_rows = 5;
 			coord_t total_cols = 5;
 			EXPECT_EQ(number_of_components(marked_cells, total_rows, total_cols), 2);
 		}
 
-		TEST(ComponentTests, LargeGrid) {
+		TEST(ListComponentTests, LargeGrid) {
 			std::list<cell> marked_cells;
 			coord_t total_rows = 100;
 			coord_t total_cols = 100;
@@ -34,7 +34,7 @@ namespace solution {
 			EXPECT_EQ(number_of_components(marked_cells, total_rows, total_cols), 50);
 		}
 
-		TEST(ComponentTests, OutOfBounds) {
+		TEST(ListComponentTests, OutOfBounds) {
 			std::list<cell> marked_cells = {{0, 0}, {5, 0}};  // Invalid row
 			coord_t total_rows = 5;
 			coord_t total_cols = 5;

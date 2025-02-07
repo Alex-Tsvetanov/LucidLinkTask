@@ -33,5 +33,7 @@ if(WITH_PLAYGROUND)
 endif()
 
 if(WITH_TESTS)
+    enable_testing()
+    include(CTest)
     add_subdirectory(tests)
 endif()
