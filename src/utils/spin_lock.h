@@ -6,7 +6,7 @@
 
 class spin_lock {
 public:
-	spin_lock() : flag(ATOMIC_FLAG_INIT) {}
+	spin_lock() : flag() {}
 
 	void lock() {
 		while (flag.test_and_set(std::memory_order_acquire));  // Spin until lock is acquired

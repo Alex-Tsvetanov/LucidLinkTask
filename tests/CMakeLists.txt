@@ -17,13 +17,13 @@ target_link_libraries(test_list_solution PRIVATE
     gtest
     gtest_main
 )
-add_executable(test_matrix_solution list.cpp)
+
+add_executable(test_matrix_solution matrix.cpp)
 target_link_libraries(test_matrix_solution PRIVATE
     ${PROJECT_NAME}
     gtest
     gtest_main
 )
 
-include(GoogleTest)
-gtest_discover_tests(test_list_solution)
-gtest_discover_tests(test_matrix_solution)
+add_test(NAME test_list_solution COMMAND test_list_solution)
+add_test(NAME test_matrix_solution COMMAND test_matrix_solution)

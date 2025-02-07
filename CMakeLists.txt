@@ -5,6 +5,9 @@ project("NumberOfComponentsInAMatrix"
     LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 option(WITH_PLAYGROUND "Compile stdio testing source" ON)
 option(WITH_TESTS "Compile tests as part of ALL_BUILD" ON)
 option(AS_MATRIX "Compile solution which takes a boolean matrix as an argument" ON)

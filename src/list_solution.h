@@ -1,10 +1,9 @@
 #include <cstdint>
 #include <utility>
 #include <list>
-#include <unordered_map>
+#include <unordered_set>
 #include <functional>
-#include "./cell.h"
-#include "./spin_lock.h"
+#include "./utils/cell.h"
 
 #ifndef LIST_SOLUTION_H
 #define LIST_SOLUTION_H
@@ -15,12 +14,13 @@ namespace solution {
 		 * @brief Breadth First Search (BFS) implmentation to find the component starting from a node
 		 *
 		 * @param node Starting node
+		 * @param marked_set Set of all marked nodes
 		 * @param total_rows The number of rows in the matrix
 		 * @param total_cols The number of columns in the matrix
 		 * @param visited Set of the already visited nodes in the current and previous components
 		 */
-		void visit_component(cell /*starting from*/ node, const coord_t& total_rows, const coord_t& total_cols,
-		                     std::unordered_set<cell>& visited);
+		void visit_component(cell /*starting from*/ node, const std::unordered_set<cell>& marked_set,
+		                     const coord_t& total_rows, const coord_t& total_cols, std::unordered_set<cell>& visited);
 
 		/**
 		 * @brief Single-threaded solution to the finding of the number of components of marked cells in a matrix
